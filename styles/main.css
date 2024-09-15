@@ -1,0 +1,212 @@
+/* ================== CSS Reset ================== */
+/* Comprehensive CSS Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================== Global Variables ================== */
+:root {
+  /* Colors */
+  --Red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+  --Very-Dark-Blue: hsl(234, 12%, 34%);
+  --Grayish-Blue: hsl(229, 6%, 66%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+
+  /* Typography */
+  --font-family: "Poppins", sans-serif;
+  --font-size-base: 93.75%; /* Sets base font size to 15px */
+  --font-size-title: 2.2rem; /* 33px */
+  --font-weight-200: 200;
+  --font-weight-400: 400;
+  --font-weight-600: 600;
+}
+
+/* ================== Global Styles ================== */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-200);
+  color: var(--Grayish-Blue);
+  background-color: var(--Very-Light-Gray);
+  padding: 1.2em;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  max-width: 550px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+/* ================== Typography ================== */
+h1,
+h2,
+h3,
+p {
+  font-family: var(--font-family);
+}
+
+h1 {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-200);
+  line-height: 1.1;
+  padding-bottom: 1rem;
+}
+
+h1 span {
+  font-weight: var(--font-weight-400);
+}
+
+h2 {
+  color: var(--Very-Dark-Blue);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-600);
+  line-height: 1.1;
+  padding-bottom: 1rem;
+}
+
+h3 {
+  color: var(--Very-Dark-Blue);
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-600);
+  padding-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 2;
+  padding-bottom: 1rem;
+}
+
+/* ================== Layout Styles ================== */
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.card {
+  position: relative; /* Required for positioning the pseudo-element */
+  box-shadow: 0 1rem 1rem 0.3rem rgba(163, 163, 174, 0.2);
+  border-radius: 0.8rem;
+  padding: 2rem;
+  background-color: white;
+  overflow: hidden; /* Ensures the pseudo-element stays within the card */
+  width: 100%;
+  max-width: 350px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.3rem; /* Thickness of the top border */
+  border-top-left-radius: 0.8rem; /* Match the card's border-radius */
+  border-top-right-radius: 0.8rem; /* Match the card's border-radius */
+}
+
+.card-supervisor::before {
+  background-color: var(--Cyan);
+}
+
+.card-team-builder::before {
+  background-color: var(--Red);
+}
+
+.card-karma::before {
+  background-color: var(--Orange);
+}
+
+.card-calculator::before {
+  background-color: var(--Blue);
+}
+
+.card img {
+  margin-left: auto;
+}
+
+/* ================== Responsive Styles ================== */
+@media (max-width: 768px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ================== Desktop Layout ================== */
+@media (min-width: 1170px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: 350px 350px 350px; /* Sets the max-width of each column */
+  }
+
+  .card-supervisor {
+    grid-column: 1;
+    grid-row: 1;
+    transform: translateY(50%); /* Move card down 50% */
+  }
+
+  .card-team-builder {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .card-karma {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .card-calculator {
+    grid-column: 3;
+    grid-row: 1;
+    transform: translateY(50%); /* Move card down 50% */
+  }
+}
