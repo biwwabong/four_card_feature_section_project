@@ -120,7 +120,7 @@ p {
   background-color: white;
   overflow: hidden; /* Ensures the pseudo-element stays within the card */
   width: 100%;
-  max-width: 350px;
+  max-width: 22rem;
 }
 
 .card::before {
@@ -185,7 +185,7 @@ p {
 @media (min-width: 1170px) {
   .card-container {
     display: grid;
-    grid-template-columns: 350px 350px 350px; /* Sets the max-width of each column */
+    grid-template-columns: 22rem 22rem 22rem; /* Sets the max-width of each column */
   }
 
   .card-supervisor {
