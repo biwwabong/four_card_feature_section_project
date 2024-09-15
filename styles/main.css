@@ -155,7 +155,7 @@ p {
 }
 
 /* ================== Responsive Styles ================== */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .main-container {
     display: flex;
     flex-direction: column;
@@ -182,7 +182,7 @@ p {
 }
 
 /* ================== Desktop Layout ================== */
-@media (min-width: 1170px) {
+@media (min-width: 73.125em) {
   .card-container {
     display: grid;
     grid-template-columns: 22rem 22rem 22rem; /* Sets the max-width of each column */
